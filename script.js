@@ -26,7 +26,7 @@ function addBookToMyLibrary(author, title, page, readState ) {
 addBookToMyLibrary("Napoleon Hill", "Think and grow rich", 450, true);
 addBookToMyLibrary("David Deutsch", "The Begining of infinity", 500, false);
 addBookToMyLibrary("Felix Dennis", "How to Get Rich", 400, false);
-addBookToMyLibrary("Nassim Taleb", "Skin in th Game", 580, false);
+addBookToMyLibrary("Nassim Taleb", "Skin in the Game", 580, false);
 addBookToMyLibrary("Mj DeMarco", "The millionaire Fastlane", 502, true);
 
 
@@ -123,6 +123,10 @@ content.addEventListener("click", (e) => {
 //confirm the book add
 confirmBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    if (!formDialog.querySelector("form").checkValidity()) {
+        formDialog.querySelector("form").reportValidity();
+        return;
+    }
     const inputValueTab = Array.from(inputs, input => input.value);
     addBookToMyLibrary(...inputValueTab);
     const NewBook = MyLibrary.slice(MyLibrary.length-1, MyLibrary.length);

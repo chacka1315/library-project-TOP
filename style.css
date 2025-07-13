@@ -25,7 +25,7 @@ header{
     grid-column: 2;
     grid-row: 1 / 2;
     background-color: #f0b429;
-    border-left: #70c1ec;
+    border-left: #009dcd;
     position: sticky;
     top: 0;
     font-family: Bungee, sans-serif;
@@ -37,7 +37,7 @@ header{
 
 header button{
     border: none;
-    background-color: #70c1ec;
+    background-color: #009dcd;
     border-radius: 10px;
     width: 120px;
     height: 50px;
@@ -60,7 +60,7 @@ header button{
 }
 .card {
     position: relative;
-    background-color: #70c1ec;
+    background-color: #009dcd;
     border-left: 6px solid #f0b429;
     height: 200px;
     border-radius: 0 10px 10px 0;
@@ -68,17 +68,19 @@ header button{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
     padding: 15px 0;
 }
 .author{
     font-family: Bungee, system-ui, sans-serif;
     font-size: 1rem;
+    color: #433005;
 }
  .title{
     font-size: 1.5rem;
     font-weight: 800;
     text-align: center;
+    line-height: 1.2;
  }
 .page{
     font-size: 1rem;
@@ -126,7 +128,7 @@ button:active{
     height: 100vh;
     max-width: 400px;
     position: fixed;
-    border-right: 6px solid  #70c1ec;
+    border-right: 6px solid  #009dcd;
 }
 
 /* footer style */
@@ -140,14 +142,85 @@ footer{
     position: fixed;
     right: 0;
     bottom: 0;
-    font-size: 1.5rem;
     text-align: center;
     font-family: Bungee, sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-main{
+/* The modal form style */
+#formDialog{
+    background-color: #009dcd90;
+    position: fixed;
+    top: 25px;
+    left: 450px;
+    height: 700px;
+    width: 450px;
+    border: #e2e8f0 6px solid;
+    border-radius: 15px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    font-weight: 600;
+    gap: 50px;
+    text-transform: uppercase;
+}
+
+input{
+    border : 2px solid #e2e8f0;
+    height: 35px;
+    width: 230px;
+    border-radius: 10px;
+}
+input:focus{
+    outline: 0;
+    border : 2px solid #009dcd;
+}
+form fieldset:first-child div {
+    display: grid;
+    row-gap: 30px;
+    grid-template-columns: 150px 200px;
+}
+
+input[type="radio"] {
+    height: 20px;
+    width: 20px;
+}
+
+.read div {
+    display: grid;
+    grid-template-columns: 200px 50px;
+    row-gap: 30px;
+
+}
+
+fieldset{
+    border: #f0b429 solid 2px;
+    border-radius: 10px;
+}
+
+legend{
+    background-color: #f0b429;
+    color: #433005;
+}
+
+form button{
+    background-color: #f0b429;
+    color: #ffffff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    width: 100px;
+    height: 40px;
+}
+form > div {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
 }

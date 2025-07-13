@@ -26,34 +26,41 @@
             <img src="./side-img-library.png" alt="side-image-library">
         </div>
         <main>
-            <dialog id="formDialog">
-                <form>
-
-                    <fieldset>
-                        <legend>Book's infos</legend>
-                        <label for="author">Author</label>
-                        <input type="text" id="author" name="book_author" required>
-                        <label for="title">Title</label>
-                        <input type="text" id="title" name="book_title" required>
-                        <label for="page">Pages number</label>
-                        <input type="text" inputmode="numeric" id="page" name="book_pages" required>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Read state</legend>
-
-                        <label for="yes">Yes, already read !</label>
-                        <input type="radio" id="yes" name="read_state" value="true" checked >
-
-                        <label for="no">No, not read yet !</label>
-                        <input type="radio" id="no"  name="read_state" value="false">
-                    </fieldset>
-
-                    <button type="button" value="cancel">Cancel</button>
-                    <button type="submit" id="confirmBtn">Confirm</button>   
-                </form>
-            </dialog>
-            <output></output>
+            <div class="modalContainer">
+                <dialog id="formDialog">
+                    <form>
+                        <fieldset>
+                            <legend>Book's infos</legend>
+                            
+                                <div>
+                                    <label for="author">Author :</label>
+                                    <input type="text" id="author" name="book_author" required>
+                                    <label for="title">Title :</label>
+                                    <input type="text" id="title" name="book_title" required>
+                                    <label for="page">Pages number :</label>
+                                    <input type="text" inputmode="numeric" id="page" name="book_pages" required>
+                                </div>
+                            
+                        </fieldset>
+                        <fieldset class="read">
+                            <legend>Read state</legend>
+                            
+                                <div>
+                                    <label for="yes">Yes, already read !</label>
+                                    <input type="radio" id="yes" name="read_state" value="true" checked >
+        
+                                    <label for="no">No, not read yet !</label>
+                                    <input type="radio" id="no"  name="read_state" value="false">
+                                </div>
+                        </fieldset>
+                        <div>
+                            <button type="button" value="cancel">Cancel</button>
+                            <button type="submit" id="confirmBtn">Confirm</button>
+                        </div>
+                    </form>
+                </dialog>
+                <output></output>
+            </div>
 
             <div class="content">
                 
