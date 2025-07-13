@@ -25,7 +25,9 @@ function addBookToMyLibrary(author, title, page, readState ) {
 //some initial books
 addBookToMyLibrary("Napoleon Hill", "Think and grow rich", 450, true);
 addBookToMyLibrary("David Deutsch", "The Begining of infinity", 500, false);
-addBookToMyLibrary("Felix Dennis", "How to Get Rich", 400, no);
+addBookToMyLibrary("Felix Dennis", "How to Get Rich", 400, false);
+addBookToMyLibrary("Nassim Taleb", "Skin in th Game", 580, false);
+addBookToMyLibrary("Mj DeMarco", "The millionaire Fastlane", 502, true);
 
 
 // books displayer
@@ -34,9 +36,13 @@ function displayBook(Array) {
     for (const book of Array) {
         const cardDiv = document.createElement("div");
         const paraAuthor = document.createElement("p");
+        paraAuthor.classList.toggle("author");
         const paraTitle = document.createElement("p");
-        const ParaPage = document.createElement("p");
+        paraTitle.classList.toggle("title");
+        const paraPage = document.createElement("p");
+        paraPage.classList.toggle("page");
         const spanReadState = document.createElement("span");
+        spanReadState.classList.toggle("spanReadState");
 
         //delete book button
         const deletBtn = document.createElement("button");
@@ -58,11 +64,10 @@ function displayBook(Array) {
  
         paraAuthor.textContent = book.author;
         paraTitle.textContent = book.title;
-        ParaPage.textContent = `${book.page} P`;
-        spanReadState.textContent = book.readState? "Already read" : "Not read yet";
+        paraPage.textContent = `${book.page} P`;
         cardDiv.appendChild(paraAuthor);
         cardDiv.appendChild(paraTitle);
-        cardDiv.appendChild(ParaPage);
+        cardDiv.appendChild(paraPage);
         cardDiv.appendChild(spanReadState);
         cardDiv.appendChild(deletBtn);
         cardDiv.appendChild(setReadStatetBtn);
@@ -111,13 +116,11 @@ content.addEventListener("click", (e) => {
         book.toggleReadState();
         content.textContent = "";
         displayBook(MyLibrary);
-       }
-       
-    }
-        
-    
+       }  
+    }  
 })
 
+//confirm the book add
 confirmBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const inputValueTab = Array.from(inputs, input => input.value);
