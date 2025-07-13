@@ -7,9 +7,15 @@ function BookObjConstructor(author, title, page, readState) {
     this.author = author;
     this.title = title;
     this.page = page;
-    this.readState = readState==="yes"? "Already read" : "Not read yet";
+    this.readState = readState;
     this.id = crypto.randomUUID();
 }
+
+//toggle read status
+BookObjConstructor.prototype.toggleReadState = function () {
+    this.readState = !this.readState;
+}
+
 
 function addBookToMyLibrary(author, title, page, readState ) {
     const newBook = new BookObjConstructor(author, title, page, readState );
@@ -17,9 +23,9 @@ function addBookToMyLibrary(author, title, page, readState ) {
 }
 
 //some initial books
-addBookToMyLibrary("Napoleon Hill", "Think and grow rich", 450, "yes");
-addBookToMyLibrary("David Deutsch", "The Begining of infinity", 500, "no");
-addBookToMyLibrary("Felix Dennis", "How to Get Rich", 400, "No");
+addBookToMyLibrary("Napoleon Hill", "Think and grow rich", 450, true);
+addBookToMyLibrary("David Deutsch", "The Begining of infinity", 500, false);
+addBookToMyLibrary("Felix Dennis", "How to Get Rich", 400, no);
 
 
 // books displayer
@@ -40,15 +46,26 @@ function displayBook(Array) {
         deletBtn.textContent = "Delete";
 
         //change reade state button
+        const setReadStatetBtn = document.createElement("button");
+        setReadStatetBtn.setAttribute("data-id", book.id);
+        setReadStatetBtn.setAttribute("id", "setReadStateBtn");
+        setReadStatetBtn.type = "button";
+        if (book.readState) {
+            setReadStatetBtn.textContent = "Read";
+        }else{
+            setReadStatetBtn.textContent = "Not Read"
+        }
+ 
         paraAuthor.textContent = book.author;
         paraTitle.textContent = book.title;
         ParaPage.textContent = `${book.page} P`;
-        spanReadState.textContent = book.readState;
+        spanReadState.textContent = book.readState? "Already read" : "Not read yet";
         cardDiv.appendChild(paraAuthor);
         cardDiv.appendChild(paraTitle);
         cardDiv.appendChild(ParaPage);
         cardDiv.appendChild(spanReadState);
         cardDiv.appendChild(deletBtn);
+        cardDiv.appendChild(setReadStatetBtn);
         cardDiv.classList.toggle("card");
         container.appendChild(cardDiv);    
     }
@@ -72,6 +89,7 @@ cancelBtn.addEventListener("click", () => {
     formDialog.close();
 } )
 
+//delete a book
 content.addEventListener("click", (e) => {
     if (e.target.matches("button[id=deleteBtn]")){
         const bookId = e.target.dataset.id;
@@ -84,6 +102,21 @@ content.addEventListener("click", (e) => {
     }
 })
 
+//set read state
+content.addEventListener("click", (e) => {
+    if(e.target.matches("button[id=setReadStateBtn]")){
+       const bookId = e.target.dataset.id; 
+       const book = MyLibrary.find(book => book.id === bookId);
+       if (book) {
+        book.toggleReadState();
+        content.textContent = "";
+        displayBook(MyLibrary);
+       }
+       
+    }
+        
+    
+})
 
 confirmBtn.addEventListener("click", (e) => {
     e.preventDefault();
