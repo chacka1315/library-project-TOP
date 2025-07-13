@@ -1,0 +1,12 @@
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 200px;
+    gap: 15px;
+}
+
+.card {
+    font-family: "Open Sans", system-ui, -apple-system, Roboto, 'Segoe UI', sans-serif;
+    border: 2px solid blue;
+}
