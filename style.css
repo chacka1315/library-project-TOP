@@ -7,6 +7,12 @@
   margin: 0;
 }
 
+:root{
+    --primary-color : #20B2AA;
+    --second-color : #009dcd;
+    --content-bkg-color: #e2e8f0;
+    --tertiary-color : #f0b429;
+}
 /* general style and layout */
 body{
     font-family: "Open Sans", system-ui, -apple-system, Roboto, 'Segoe UI', sans-serif;
@@ -24,12 +30,13 @@ header{
     z-index: 2;
     grid-column: 2;
     grid-row: 1 / 2;
-    background-color: #f0b429;
-    border-left: #009dcd;
+    background-color:var(--primary-color) ;
+    border-left: var(--second-color);
     position: sticky;
     top: 0;
     font-family: Bungee, sans-serif;
     font-size: 2.5rem;
+    letter-spacing: 0.6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,39 +44,40 @@ header{
 
 header button{
     border: none;
-    background-color: #009dcd;
+    background-color: var(--second-color);
     border-radius: 10px;
     width: 120px;
-    height: 50px;
-    padding: 10px 10px;
+    height: 40px;
+    padding: 5px 5px;
     color: #ffffff;
     font-weight: 600;
     font-size: 1.2rem;
     cursor: pointer;
     box-shadow: 1px 1px 2px #ffffff;
+    margin-top: 10px;
 }
 /* content and the book card style */
 .content{
     grid-column: 1;
     grid-row: 2 / 3 ;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    background-color: #e2e8f0;
+    grid-template-columns: repeat(auto-fit, 175px);
+    gap: 30px;
+    background-color: var(--content-bkg-color);
     padding: 30px;
 }
 .card {
     position: relative;
-    background-color: #009dcd;
-    border-left: 6px solid #f0b429;
-    height: 200px;
+    background-color: var(--second-color);
+    border-left: 6px solid var(--tertiary-color);
+    height: 220px;
     border-radius: 0 10px 10px 0;
     z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 25px;
-    padding: 15px 0;
+    padding: 20px 10px;
 }
 .author{
     font-family: Bungee, system-ui, sans-serif;
@@ -84,7 +92,9 @@ header button{
  }
 .page{
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--primary-color);
+
 }
 /*button style*/
 #deleteBtn{
@@ -138,7 +148,7 @@ footer{
     width: calc(100% - 400px);
     grid-column: 2;
     grid-row: 3 / 4;
-    background-color: #f0b429;
+    background-color: var(--primary-color);
     position: fixed;
     right: 0;
     bottom: 0;

@@ -28,6 +28,11 @@ addBookToMyLibrary("David Deutsch", "The Begining of infinity", 500, false);
 addBookToMyLibrary("Felix Dennis", "How to Get Rich", 400, false);
 addBookToMyLibrary("Nassim Taleb", "Skin in the Game", 580, false);
 addBookToMyLibrary("Mj DeMarco", "The millionaire Fastlane", 502, true);
+addBookToMyLibrary("Wallace D.", "Science of being Rich", 490, true);
+addBookToMyLibrary("Peter Thiel", "Zero to One", 560, false);
+addBookToMyLibrary("Eric Jogerson", "The Almanack of Naval", 430, true);
+addBookToMyLibrary("Hal Elrodes", "Miracle Morning", 580, true);
+addBookToMyLibrary("Mj DeMarco", "Unscripted", 320, true);
 
 
 // books displayer
@@ -39,10 +44,11 @@ function displayBook(Array) {
         paraAuthor.classList.toggle("author");
         const paraTitle = document.createElement("p");
         paraTitle.classList.toggle("title");
-        const paraPage = document.createElement("p");
+        const paraPage = document.createElement("div");
         paraPage.classList.toggle("page");
         const spanReadState = document.createElement("span");
         spanReadState.classList.toggle("spanReadState");
+        const divCardnPage = document.createElement("div");
 
         //delete book button
         const deletBtn = document.createElement("button");
@@ -64,15 +70,16 @@ function displayBook(Array) {
  
         paraAuthor.textContent = book.author;
         paraTitle.textContent = book.title;
-        paraPage.textContent = `${book.page} P`;
+        paraPage.textContent = `# ${book.page} P`;
         cardDiv.appendChild(paraAuthor);
         cardDiv.appendChild(paraTitle);
-        cardDiv.appendChild(paraPage);
         cardDiv.appendChild(spanReadState);
         cardDiv.appendChild(deletBtn);
         cardDiv.appendChild(setReadStatetBtn);
         cardDiv.classList.toggle("card");
-        container.appendChild(cardDiv);    
+        divCardnPage.appendChild(cardDiv); 
+        divCardnPage.appendChild(paraPage);
+        container.appendChild(divCardnPage);    
     }
 }
 displayBook(MyLibrary);
