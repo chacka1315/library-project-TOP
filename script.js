@@ -1,19 +1,18 @@
 const MyLibrary = [];
 
-function BookObjConstructor(author, title, page, readState) {
-    if (!new.target) {
-        throw Error("Make sure you have call me with New key")
-    }
+class BookObjConstructor {
+    constructor(author, title, page, readState) {
     this.author = author;
     this.title = title;
     this.page = page;
     this.readState = readState;
     this.id = crypto.randomUUID();
-}
+    };
 
-//toggle read status
-BookObjConstructor.prototype.toggleReadState = function () {
-    this.readState = !this.readState;
+    toggleReadState = function () {
+        this.readState = !this.readState;
+    };
+
 }
 
 
