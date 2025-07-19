@@ -1,6 +1,6 @@
 const MyLibrary = [];
 
-class BookObjConstructor {
+class Book {
     constructor(author, title, page, readState) {
     this.author = author;
     this.title = title;
@@ -9,7 +9,7 @@ class BookObjConstructor {
     this.id = crypto.randomUUID();
     };
 
-    toggleReadState = function () {
+    toggleReadState() {
         this.readState = !this.readState;
     };
 
@@ -17,7 +17,7 @@ class BookObjConstructor {
 
 
 function addBookToMyLibrary(author, title, page, readState ) {
-    const newBook = new BookObjConstructor(author, title, page, readState );
+    const newBook = new Book(author, title, page, readState );
     MyLibrary.push(newBook);
 }
 
